@@ -73,9 +73,9 @@ function Ready( { roomIndex, setRoomIndex, setScene, userName, playerID, players
     setScene("start")
 
     // ホストが抜けると強制終了
-    if(isHost) {
-      gameEnd()
-    }
+    // if(isHost) {
+    //   gameEnd()
+    // }
   }
 
   // 準備OK/取り消し
