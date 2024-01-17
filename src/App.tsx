@@ -140,13 +140,12 @@ function App() {
     <>
       <Header />
       <div className="h-[600px]">
-      <main className="w-[500px] h-[500px] my-[40px] outline outline-2 bg-white absolute left-[50%] translate-x-[-50%]">
-        {scene === "start" && <Start userName={userName} setUserName={setUserName} roomPopulationList={roomPopulationList} roomStatusList={roomStatusList} setIsHost={setIsHost} setRoomIndex={setRoomIndex} setScene={setScene} setPlayerID={setPlayerID} />}
-        {scene === "ready" && <Ready roomIndex={roomIndex} setRoomIndex={setRoomIndex} setScene={setScene} userName={userName} playerID={playerID} players={players} isHost={isHost} setIsHost={setIsHost} isStartalbe={isStartalbe}/>}
-        {scene === "setting" && <Setting isHost={isHost} roomIndex={roomIndex} setScene={setScene} theme={theme} setTheme={setTheme}/>}
-        {scene === "ito" && <Ito myCards={myCards} theme={theme} roomIndex={roomIndex} userName={userName} players={players}/>}
-      </main>
-
+        <main className="w-[100%] max-w-[500px] h-[500px] my-[40px] outline outline-2 bg-white absolute left-[50%] translate-x-[-50%]">
+          {scene === "start" && <Start userName={userName} setUserName={setUserName} roomPopulationList={roomPopulationList} roomStatusList={roomStatusList} setIsHost={setIsHost} setRoomIndex={setRoomIndex} setScene={setScene} setPlayerID={setPlayerID} />}
+          {scene === "ready" && <Ready roomIndex={roomIndex} setRoomIndex={setRoomIndex} setScene={setScene} userName={userName} playerID={playerID} players={players} isHost={isHost} setIsHost={setIsHost} isStartalbe={isStartalbe}/>}
+          {scene === "setting" && <Setting isHost={isHost} roomIndex={roomIndex} setScene={setScene} theme={theme} setTheme={setTheme}/>}
+          {scene === "ito" && <Ito myCards={myCards} theme={theme} roomIndex={roomIndex} userName={userName} players={players}/>}
+        </main>
       </div>
       <Footer />
     </>

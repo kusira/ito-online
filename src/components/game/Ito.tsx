@@ -55,7 +55,7 @@ function Ito({ myCards, theme, roomIndex, userName, players } : { myCards: numbe
         </div>
         <div className="absolute right-0 bottom-0">
           <p>ユーザー</p>
-          <ul className="w-[200px] h-[160px] p-4 border-black border-[1px] overflow-y-scroll">
+          <ul className="w-[130px] h-[160px] p-4 border-black border-[1px] overflow-y-scroll">
             {
               players.map((player, index) => (
                 <li key={index} className="">{player.playerName}</li>
