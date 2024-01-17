@@ -109,7 +109,7 @@ function Setting({ isHost, roomIndex, setScene, theme, setTheme} : { isHost: boo
     "便利なもの",
     "されたいプロポーズ（セリフ・シチュエーション）"
   ];
-  
+
   // お題のランダム生成
   const randomTheme = () => {
     const randomIndex = Math.floor(Math.random() * themeList.length);
@@ -165,12 +165,12 @@ function Setting({ isHost, roomIndex, setScene, theme, setTheme} : { isHost: boo
             <input type="text" placeholder="お題" className="border-black border-b-[1px] focus:border-purple-700 focus:outline-0 focus:border-b-2 w-[300px] mb-2" 
             value={theme}
             onChange={(e) => setTheme(e.target.value)}/>
-            <p className="text-sm mb-4">(例) コンビニの人気商品・言われて嬉しい言葉</p>
+            <p className="text-sm mb-4">(例) 飲み物の人気・言われて嬉しい言葉</p>
             <div className="bg-gray-200 border-black border-[1px] rounded-sm shadow-md p-1 w-max ml-[170px] cursor-pointer hover:bg-gray300 active:bg-gray-400 transition-all"
             onClick={() => randomTheme()}>ランダム生成</div>
           </div>
           <div className="w-[300px] ml-[150px] mt-[100px]">
-            <Button variant="contained" color="primary" size="large" onClick={() => itoStart() }>ゲームスタート</Button>
+            <Button variant="contained" color="primary" size="large" onClick={() => itoStart() } disabled = {theme===""}>ゲームスタート</Button>
           </div>
         </div>
         :

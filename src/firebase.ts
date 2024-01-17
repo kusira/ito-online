@@ -2,7 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKey: "AIzaSyDPEcPFFqTZWkhK1Dl6054OqLSeievmc44",
+  // apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "ito-online-6e0bf.firebaseapp.com",
   projectId: "ito-online-6e0bf",
   storageBucket: "ito-online-6e0bf.appspot.com",

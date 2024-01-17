@@ -13,10 +13,10 @@ type GameInfo = {
 
 function Start({ userName, setUserName, roomPopulationList, roomStatusList, setIsHost, setRoomIndex, setScene, setPlayerID} : { userName:string, setUserName:any, roomPopulationList: number[], roomStatusList: string[], setIsHost:any, setRoomIndex: any, setScene: any, setPlayerID: any}) {
   const roomArray: number[] = [0, 1, 2, 3, 4, 5]
+  const [isClick, setIsClick] = useState<boolean>(false)
 
   // 入室
   const EnterRoom = async(index:number ) => {
-    
     // GameInfoCol/room${index}Docの変更
     const roomDocumentRef = doc(db, "GameInfoCol", `room${index}Doc`)
     const roomSnapshot =  await getDoc(roomDocumentRef)
@@ -50,13 +50,15 @@ function Start({ userName, setUserName, roomPopulationList, roomStatusList, setI
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const handleButtonClick = (index: number) => {
+    setIsClick(true)
     if (
       roomPopulationList[index] <= 9 &&
       userName !== "" &&
       (roomStatusList[index] === "free" || roomStatusList[index] === "recruit") &&
       !isButtonDisabled
-    ) {
-      setIsButtonDisabled(true);
+      ) {
+        setIsButtonDisabled(true);
+        setIsClick(false)
 
       EnterRoom(index);
 
@@ -97,11 +99,11 @@ function Start({ userName, setUserName, roomPopulationList, roomStatusList, setI
         ))}
       </ul>
       <div className="w-max mx-auto">
-        <p className="mb-2">名前を入力してください(10文字以内)</p>
+        <p className="mb-2">名前を入力してください(10文字以内)  <span className="text-red-700 text-xs font-bold">必須</span></p>
         <input type="text" placeholder="名前" maxLength={10}  className="border-black border-b-[1px] focus:border-purple-700 focus:outline-0 focus:border-b-2" 
         value={userName}
         onChange={(e) => setUserName(e.target.value)}/>
-        <p>{userName}</p>
+        { isClick && <p className="text-xs text-red-700 mt-2">名前を入力してください</p>}
       </div>
     </div>
   )
